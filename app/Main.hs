@@ -10,4 +10,4 @@ import Ply.Plutarch (
 
 main :: IO ()
 main = do
-  writeTypedScript def "test" "./linearVesting.plutus" LinearVesting.pvalidateVestingScriptValidator
+  writeTypedScript def "test" "./linearVesting.json" LinearVesting.pvalidateVestingScriptValidator

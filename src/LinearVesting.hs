@@ -100,12 +100,12 @@ pvalidateVestingPartialUnlock = phoistAcyclic $ plam $ \datum ctx -> unTermCont 
 
   PPubKeyCredential ((pfield @"_0" #) -> beneficiaryHash) <- pmatchC (pfield @"credential" # datumF.beneficiary)
 
-  pguardC "vPU signed by beneficiary" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
-  pguardC "vpu first unlock possible" (firstUnlockPossibleAfter #< currentTimeApproximation)
-  pguardC "vPU is partial unlock" (0 #< newRemainingQty)
-  pguardC "vPU withdrawn something" (newRemainingQty #< oldRemainingQty)
-  pguardC "vPU unlocking all vested" (expectedRemainingQty #== ptryPositive # newRemainingQty)
-  pguardC "vPU datum not changed" (ownVestingInputF.datum #== ownVestingOutputF.datum)
+  pguardC "error vp signed by beneficiary" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
+  pguardC "error vp first unlock possible" (firstUnlockPossibleAfter #< currentTimeApproximation)
+  pguardC "error vp is partial unlock" (0 #< newRemainingQty)
+  pguardC "error vp withdrawn something" (newRemainingQty #< oldRemainingQty)
+  pguardC "error vp unlocking all vested" (expectedRemainingQty #== ptryPositive # newRemainingQty)
+  pguardC "error vp datum not changed" (ownVestingInputF.datum #== ownVestingOutputF.datum)
   pure $ pconstant ()
 
 pvalidateVestingFullUnlock :: Term s (PVestingDatum :--> PScriptContext :--> PUnit)
@@ -115,8 +115,8 @@ pvalidateVestingFullUnlock = phoistAcyclic $ plam $ \datum context -> unTermCont
   PFullyBoundedTimeRange currentTimeApproximation _ <- pmatchC $ passertFullyBoundedTimeRange # "time range error" # txInfoF.validRange
   PPubKeyCredential ((pfield @"_0" #) -> beneficiaryHash) <- pmatchC (pfield @"credential" # datumF.beneficiary)
 
-  pguardC "vFU signed by beneficiary" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
-  pguardC "vFU vesting period ended" (datumF.vestingPeriodEnd #< currentTimeApproximation)
+  pguardC "error vf signed by beneficiary" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
+  pguardC "error vf vesting period end" (datumF.vestingPeriodEnd #< currentTimeApproximation)
   pure $ pconstant ()
 
 pvalidateVestingScript ::
