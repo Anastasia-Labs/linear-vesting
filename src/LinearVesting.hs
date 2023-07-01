@@ -1,4 +1,5 @@
 {-# OPTIONS_GHC -Wno-orphans #-}
+{-# OPTIONS_GHC -Wno-unused-imports #-}
 
 module LinearVesting (pvalidateVestingScriptValidator) where
 
@@ -7,12 +8,12 @@ import Plutarch.Api.V2 (PPOSIXTime, PScriptContext, PScriptPurpose (PSpending), 
 import Plutarch.DataRepr (PDataFields)
 import Plutarch.Extra.AssetClass (PAssetClassData, ptoScottEncoding)
 import Plutarch.Extra.ScriptContext (pfindOutputsToAddress, pfindOwnInput, ptxSignedBy)
-import "plutarch-extra" Plutarch.Extra.TermCont (pguardC, pletC, pletFieldsC, pmatchC, ptryFromC)
+import "plutarch-extra" Plutarch.Extra.TermCont (pguardC, pletC, pletFieldsC, pmatchC, ptraceC, ptryFromC)
 import Plutarch.Extra.Time (PFullyBoundedTimeRange (PFullyBoundedTimeRange), passertFullyBoundedTimeRange)
 import Plutarch.Extra.Value (passetClassValueOf)
 import Plutarch.Positive (ptryPositive)
 import Plutarch.Prelude
-import Utils (pdivCeil, pheadSingleton)
+import Utils (pdivCeil, pgetLowerInclusiveTimeRange, pheadSingleton)
 
 data PVestingDatum (s :: S)
   = PVestingDatum
@@ -22,9 +23,9 @@ data PVestingDatum (s :: S)
               '[ "beneficiary" ':= PAddress
                , "vestingAsset" ':= PAssetClassData
                , "totalVestingQty" ':= PInteger
-               , "vestingPeriodStart" ':= PPOSIXTime
-               , "vestingPeriodEnd" ':= PPOSIXTime
-               , "firstUnlockPossibleAfter" ':= PPOSIXTime
+               , "vestingPeriodStart" ':= PInteger
+               , "vestingPeriodEnd" ':= PInteger
+               , "firstUnlockPossibleAfter" ':= PInteger
                , "totalInstallments" ':= PInteger
                , "vestingMemo" ':= PByteString
                ]
@@ -83,28 +84,25 @@ pvalidateVestingPartialUnlock = phoistAcyclic $ plam $ \datum ctx -> unTermCont 
         ]
       datum
 
-  totalVestingQty <- pletC $ ptryPositive # datumF.totalVestingQty
   vestingAsset <- pletC $ ptoScottEncoding # datumF.vestingAsset
-  totalInstallments <- pletC $ ptryPositive # datumF.totalInstallments
-  PFullyBoundedTimeRange currentTimeApproximation _ <- pmatchC $ passertFullyBoundedTimeRange # "time range error" # txInfoF.validRange
-  let firstUnlockPossibleAfter = pfromData datumF.firstUnlockPossibleAfter
+  currentTimeApproximation <- pletC $ pfromData $ pto $ pgetLowerInclusiveTimeRange # txInfoF.validRange
 
   oldRemainingQty <- pletC $ passetClassValueOf # vestingAsset # ownVestingInputF.value
   newRemainingQty <- pletC $ passetClassValueOf # vestingAsset # ownVestingOutputF.value
-  vestingPeriodLength <- pletC $ ptryPositive #$ pto $ (pfromData datumF.vestingPeriodEnd) - (pfromData datumF.vestingPeriodStart)
-  vestingTimeRemaining <- pletC $ ptryPositive #$ pto $ (pfromData datumF.vestingPeriodEnd) - (currentTimeApproximation)
-  timeBetweenTwoInstallments <- pletC $ pdivCeil # vestingPeriodLength # totalInstallments
-  futureInstallments <- pletC $ pdivCeil # vestingTimeRemaining # timeBetweenTwoInstallments
+  vestingPeriodLength <- pletC $ (pfromData datumF.vestingPeriodEnd) - (pfromData datumF.vestingPeriodStart)
+  vestingTimeRemaining <- pletC $ (pfromData datumF.vestingPeriodEnd) - (currentTimeApproximation)
+  timeBetweenTwoInstallments <- pletC $ pdivCeil # vestingPeriodLength # datumF.totalInstallments
+  futureInstallments <- pletC $ pdivCeil # (vestingTimeRemaining) # (timeBetweenTwoInstallments)
 
-  let expectedRemainingQty = pdivCeil # (futureInstallments * totalVestingQty) #$ totalInstallments
+  let expectedRemainingQty = pdivCeil # (futureInstallments * datumF.totalVestingQty) #$ datumF.totalInstallments
 
   PPubKeyCredential ((pfield @"_0" #) -> beneficiaryHash) <- pmatchC (pfield @"credential" # datumF.beneficiary)
 
   pguardC "error vp signed by beneficiary" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
-  pguardC "error vp first unlock possible" (firstUnlockPossibleAfter #< currentTimeApproximation)
+  pguardC "error vp first unlock possible" (datumF.firstUnlockPossibleAfter #< currentTimeApproximation)
   pguardC "error vp is partial unlock" (0 #< newRemainingQty)
   pguardC "error vp withdrawn something" (newRemainingQty #< oldRemainingQty)
-  pguardC "error vp unlocking all vested" (expectedRemainingQty #== ptryPositive # newRemainingQty)
+  pguardC "error vp unlocking all vested" (expectedRemainingQty #== newRemainingQty)
   pguardC "error vp datum not changed" (ownVestingInputF.datum #== ownVestingOutputF.datum)
   pure $ pconstant ()
 
@@ -112,7 +110,7 @@ pvalidateVestingFullUnlock :: Term s (PVestingDatum :--> PScriptContext :--> PUn
 pvalidateVestingFullUnlock = phoistAcyclic $ plam $ \datum context -> unTermCont $ do
   datumF <- tcont $ pletFields @'["beneficiary", "vestingPeriodEnd"] datum
   txInfoF <- tcont $ pletFields @'["signatories", "validRange"] $ pfield @"txInfo" # context
-  PFullyBoundedTimeRange currentTimeApproximation _ <- pmatchC $ passertFullyBoundedTimeRange # "time range error" # txInfoF.validRange
+  currentTimeApproximation <- pletC $ pfromData $ pto $ pgetLowerInclusiveTimeRange # txInfoF.validRange
   PPubKeyCredential ((pfield @"_0" #) -> beneficiaryHash) <- pmatchC (pfield @"credential" # datumF.beneficiary)
 
   pguardC "error vf signed by beneficiary" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
