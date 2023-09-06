@@ -27,7 +27,6 @@ data PVestingDatum (s :: S)
                , "vestingPeriodEnd" ':= PInteger
                , "firstUnlockPossibleAfter" ':= PInteger
                , "totalInstallments" ':= PInteger
-               , "vestingMemo" ':= PByteString
                ]
           )
       )
@@ -98,12 +97,12 @@ pvalidateVestingPartialUnlock = phoistAcyclic $ plam $ \datum ctx -> unTermCont 
 
   PPubKeyCredential ((pfield @"_0" #) -> beneficiaryHash) <- pmatchC (pfield @"credential" # datumF.beneficiary)
 
-  pguardC "error vp signed by beneficiary" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
-  pguardC "error vp first unlock possible" (datumF.firstUnlockPossibleAfter #< currentTimeApproximation)
-  pguardC "error vp is partial unlock" (0 #< newRemainingQty)
-  pguardC "error vp withdrawn something" (newRemainingQty #< oldRemainingQty)
-  pguardC "error vp unlocking all vested" (expectedRemainingQty #== newRemainingQty)
-  pguardC "error vp datum not changed" (ownVestingInputF.datum #== ownVestingOutputF.datum)
+  pguardC "Missing beneficiary signature" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
+  pguardC "Unlock not permitted until firstUnlockPossibleAfter time" (datumF.firstUnlockPossibleAfter #< currentTimeApproximation)
+  pguardC "Zero remaining assets not allowed" (0 #< newRemainingQty)
+  pguardC "Remaining asset exceed old asset" (newRemainingQty #< oldRemainingQty)
+  pguardC "Mismatched remaining asset" (expectedRemainingQty #== newRemainingQty)
+  pguardC "Datum Modification Prohibited" (ownVestingInputF.datum #== ownVestingOutputF.datum)
   pure $ pconstant ()
 
 pvalidateVestingFullUnlock :: Term s (PVestingDatum :--> PScriptContext :--> PUnit)
@@ -113,8 +112,8 @@ pvalidateVestingFullUnlock = phoistAcyclic $ plam $ \datum context -> unTermCont
   currentTimeApproximation <- pletC $ pfromData $ pto $ pgetLowerInclusiveTimeRange # txInfoF.validRange
   PPubKeyCredential ((pfield @"_0" #) -> beneficiaryHash) <- pmatchC (pfield @"credential" # datumF.beneficiary)
 
-  pguardC "error vf signed by beneficiary" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
-  pguardC "error vf vesting period end" (datumF.vestingPeriodEnd #< currentTimeApproximation)
+  pguardC "Missing beneficiary signature" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
+  pguardC "Unlock not permitted until vestingPeriodEnd time" (datumF.vestingPeriodEnd #< currentTimeApproximation)
   pure $ pconstant ()
 
 pvalidateVestingScript ::
