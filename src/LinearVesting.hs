@@ -3,8 +3,8 @@
 
 module LinearVesting (pvalidateVestingScriptValidator) where
 
-import Plutarch.Api.V1 (PAddress, PCredential (PPubKeyCredential))
-import Plutarch.Api.V2 (PPOSIXTime, PScriptContext, PScriptPurpose (PSpending), PValidator)
+import Plutarch.Api.V1 (PAddress, PCredential (PPubKeyCredential, PScriptCredential))
+import Plutarch.Api.V2 (PPOSIXTime, PScriptContext, PScriptHash, PScriptPurpose (PSpending), PTxInInfo, PValidator)
 import Plutarch.DataRepr (PDataFields)
 import Plutarch.Extra.AssetClass (PAssetClassData, ptoScottEncoding)
 import Plutarch.Extra.ScriptContext (pfindOutputsToAddress, pfindOwnInput, ptxSignedBy)
@@ -57,17 +57,16 @@ pcountInputsAtScript :: Term s (PScriptHash :--> PBuiltinList PTxInInfo :--> PIn
 pcountInputsAtScript =
   phoistAcyclic $ plam $ \sHash ->
     let go :: Term _ (PInteger :--> PBuiltinList PTxInInfo :--> PInteger)
-        go = pfix #$ plam $ \self n -> 
-              pelimList 
-                (\x xs -> 
-                  let cred = pfield @"credential" # (pfield @"address" # (pfield @"resolved" # x))
-                   in pmatch cred $ \case 
-                        PScriptCredential ((pfield @"_0" #) -> vh) -> pif (sHash #== vh) (self # (n + 1) # xs) (self # n # xs)
-                        _ -> self # n # xs
-                )
-                n
+        go = pfix #$ plam $ \self n ->
+          pelimList
+            ( \x xs ->
+                let cred = pfield @"credential" # (pfield @"address" # (pfield @"resolved" # x))
+                 in pmatch cred $ \case
+                      PScriptCredential ((pfield @"_0" #) -> vh) -> pif (sHash #== vh) (self # (n + 1) # xs) (self # n # xs)
+                      _ -> self # n # xs
+            )
+            n
      in go # 0
-
 
 pvalidateVestingPartialUnlock ::
   Term
@@ -84,7 +83,7 @@ pvalidateVestingPartialUnlock = phoistAcyclic $ plam $ \datum ctx -> unTermCont 
   PJust ownVestingInput <- pmatchC $ pfindOwnInput # txInfoF.inputs # ownRef
   ownVestingInputF <- pletFieldsC @'["address", "value", "datum"] (pfield @"resolved" # ownVestingInput)
   PScriptCredential ((pfield @"_0" #) -> ownValHash) <- pmatchC (pfield @"credential" # ownVestingInputF.address)
-  
+
   ownVestingOutput <- pletC $ pheadSingleton #$ pfindOutputsToAddress # txInfoF.outputs # ownVestingInputF.address
   ownVestingOutputF <- pletFieldsC @'["address", "value", "datum"] ownVestingOutput
 
@@ -120,7 +119,7 @@ pvalidateVestingPartialUnlock = phoistAcyclic $ plam $ \datum ctx -> unTermCont 
   pguardC "Remaining asset exceed old asset" (newRemainingQty #< oldRemainingQty)
   pguardC "Mismatched remaining asset" (expectedRemainingQty #== newRemainingQty)
   pguardC "Datum Modification Prohibited" (ownVestingInputF.datum #== ownVestingOutputF.datum)
-  pguardC "Double satisfaction" (pcountInputsAtScript # ownValHash # txInfoF.inputs #== 1) 
+  pguardC "Double satisfaction" (pcountInputsAtScript # ownValHash # txInfoF.inputs #== 1)
   pure $ pconstant ()
 
 pvalidateVestingFullUnlock :: Term s (PVestingDatum :--> PScriptContext :--> PUnit)
