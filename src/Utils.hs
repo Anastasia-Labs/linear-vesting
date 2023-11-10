@@ -12,11 +12,11 @@ where
 import Plutarch.Api.V1 (PExtended (PFinite), PInterval (PInterval), PLowerBound (PLowerBound), PPOSIXTimeRange, PUpperBound (PUpperBound))
 import Plutarch.Api.V1.Time (PPOSIXTime)
 import Plutarch.Builtin (ppairDataBuiltin)
-import "plutarch-extra" Plutarch.Extra.TermCont (pletC, pletFieldsC, pmatchC)
 import Plutarch.Num (PNum)
 import Plutarch.Prelude
+import "plutarch-extra" Plutarch.Extra.TermCont (pletC, pletFieldsC, pmatchC)
 
-(#>) :: POrd t => Term s t -> Term s t -> Term s PBool
+(#>) :: (POrd t) => Term s t -> Term s t -> Term s PBool
 a #> b = b #< a
 
 infix 4 #>
@@ -26,7 +26,7 @@ a #>= b = b #<= a
 
 infix 4 #>=
 
-(#/=) :: PEq t => Term s t -> Term s t -> Term s PBool
+(#/=) :: (PEq t) => Term s t -> Term s t -> Term s PBool
 a #/= b = pnot # (a #== b)
 
 infix 4 #/=
