@@ -22,9 +22,6 @@ import Plutarch (
 import Plutarch.Evaluate (
   evalScript,
  )
-import "liqwid-plutarch-extra" Plutarch.Extra.Script (
-  applyArguments,
- )
 import Plutarch.Prelude
 import Plutarch.Script (Script, serialiseScript)
 import PlutusLedgerApi.V2 (
@@ -32,6 +29,9 @@ import PlutusLedgerApi.V2 (
   ExBudget,
  )
 import System.Directory (createDirectoryIfMissing, doesDirectoryExist)
+import "liqwid-plutarch-extra" Plutarch.Extra.Script (
+  applyArguments,
+ )
 
 encodeSerialiseCBOR :: Script -> Text
 encodeSerialiseCBOR = Text.decodeUtf8 . Base16.encode . CBOR.serialize' . serialiseScript

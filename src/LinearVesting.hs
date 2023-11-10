@@ -8,12 +8,12 @@ import Plutarch.Api.V2 (PPOSIXTime, PScriptContext, PScriptHash, PScriptPurpose 
 import Plutarch.DataRepr (PDataFields)
 import Plutarch.Extra.AssetClass (PAssetClassData, ptoScottEncoding)
 import Plutarch.Extra.ScriptContext (pfindOutputsToAddress, pfindOwnInput, ptxSignedBy)
-import "plutarch-extra" Plutarch.Extra.TermCont (pguardC, pletC, pletFieldsC, pmatchC, ptraceC, ptryFromC)
 import Plutarch.Extra.Time (PFullyBoundedTimeRange (PFullyBoundedTimeRange), passertFullyBoundedTimeRange)
 import Plutarch.Extra.Value (passetClassValueOf)
 import Plutarch.Positive (ptryPositive)
 import Plutarch.Prelude
 import Utils (pdivCeil, pgetLowerInclusiveTimeRange, pheadSingleton)
+import "plutarch-extra" Plutarch.Extra.TermCont (pguardC, pletC, pletFieldsC, pmatchC, ptraceC, ptryFromC)
 
 data PVestingDatum (s :: S)
   = PVestingDatum
@@ -35,8 +35,6 @@ data PVestingDatum (s :: S)
 
 instance DerivePlutusType PVestingDatum where
   type DPTStrat _ = PlutusTypeData
-
-instance PTryFrom PData (PAsData PAssetClassData)
 
 instance PTryFrom PData PVestingDatum
 
