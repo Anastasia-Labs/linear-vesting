@@ -1,4 +1,19 @@
-dist-newstyle
-*.plutus
+# env
+
 .direnv
+
+# Git
+
 .pre-commit-config.yaml
+
+# Cabal
+
+dist-newstyle
+
+# Plutus
+
+*.plutus
+
+# VSCode
+
+.vscode/
