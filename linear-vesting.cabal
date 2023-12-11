@@ -37,6 +37,7 @@ common lang
     -fprint-explicit-foralls -fprint-explicit-kinds -Wunused-do-bind
 
   default-extensions:
+    NoStarIsType
     BangPatterns
     BinaryLiterals
     ConstrainedClassMethods
@@ -73,10 +74,8 @@ common lang
     MultiParamTypeClasses
     NamedFieldPuns
     NamedWildCards
-    NoStarIsType
     NumericUnderscores
     OverloadedLabels
-    OverloadedRecordDot
     OverloadedStrings
     PackageImports
     PartialTypeSignatures
@@ -97,6 +96,7 @@ common lang
     TypeSynonymInstances
     UndecidableInstances
     ViewPatterns
+    OverloadedRecordDot
 
   default-language:   GHC2021
 
