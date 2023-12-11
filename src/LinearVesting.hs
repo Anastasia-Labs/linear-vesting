@@ -163,7 +163,7 @@ pvalidateVestingPartialUnlock = phoistAcyclic $ plam $ \datum ctx -> unTermCont 
   pguardC "Missing beneficiary signature" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
   pguardC "Unlock not permitted until firstUnlockPossibleAfter time" (datumF.firstUnlockPossibleAfter #< currentTimeApproximation)
   pguardC "Zero remaining assets not allowed" (0 #< newRemainingQty)
-  pguardC "Remaining asset exceed old asset" $ ptrace (pshow datumF.totalInstallments) $ (newRemainingQty #< oldRemainingQty)
+  pguardC "Remaining asset exceed old asset" (newRemainingQty #< oldRemainingQty)
   pguardC "Mismatched remaining asset" (expectedRemainingQty #== newRemainingQty)
   pguardC "Datum Modification Prohibited" (ownVestingInputF.datum #== ownVestingOutputF.datum)
   pguardC "Double satisfaction" (pcountInputsAtScript # ownValHash # txInfoF.inputs #== 1)
