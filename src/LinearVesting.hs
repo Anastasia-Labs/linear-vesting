@@ -1,19 +1,57 @@
-{-# OPTIONS_GHC -Wno-orphans #-}
-{-# OPTIONS_GHC -Wno-unused-imports #-}
+module LinearVesting (
+  PVestingDatum (..),
+  PVestingRedeemer (..),
+  VestingDatum (..),
+  VestingRedeemer (..),
+  pvalidateVestingPartialUnlock,
+  pvalidateVestingScriptValidator,
+) where
 
-module LinearVesting (pvalidateVestingScriptValidator) where
+import PlutusLedgerApi.V1.Value (AssetClass)
+import PlutusLedgerApi.V2 (Address)
+import PlutusTx qualified
 
-import Plutarch.Api.V1 (PAddress, PCredential (PPubKeyCredential, PScriptCredential))
-import Plutarch.Api.V2 (PPOSIXTime, PScriptContext, PScriptHash, PScriptPurpose (PSpending), PTxInInfo, PValidator)
-import Plutarch.DataRepr (PDataFields)
-import Plutarch.Extra.AssetClass (PAssetClassData, ptoScottEncoding)
+import Plutarch.Api.V1 (PAddress, PCredential (..))
+import Plutarch.Api.V2 (PCurrencySymbol, PScriptContext, PScriptHash, PScriptPurpose (PSpending), PTokenName, PTxInInfo, PValidator)
+import Plutarch.DataRepr (DerivePConstantViaData (..), PDataFields)
+import Plutarch.Extra.AssetClass (PAssetClass (..))
 import Plutarch.Extra.ScriptContext (pfindOutputsToAddress, pfindOwnInput, ptxSignedBy)
-import Plutarch.Extra.Time (PFullyBoundedTimeRange (PFullyBoundedTimeRange), passertFullyBoundedTimeRange)
 import Plutarch.Extra.Value (passetClassValueOf)
-import Plutarch.Positive (ptryPositive)
+import Plutarch.Lift (PConstantDecl, PUnsafeLiftDecl (..))
+import Plutarch.Monadic qualified as P
 import Plutarch.Prelude
-import Utils (pdivCeil, pgetLowerInclusiveTimeRange, pheadSingleton)
-import "plutarch-extra" Plutarch.Extra.TermCont (pguardC, pletC, pletFieldsC, pmatchC, ptraceC, ptryFromC)
+import "liqwid-plutarch-extra" Plutarch.Extra.TermCont (pguardC, pletC, pletFieldsC, pmatchC)
+
+import Conversions
+import Utils
+
+data VestingDatum = VestingDatum
+  { beneficiary :: Address
+  , vestingAsset :: AssetClass
+  , totalVestingQty :: Integer
+  , vestingPeriodStart :: Integer
+  , vestingPeriodEnd :: Integer
+  , firstUnlockPossibleAfter :: Integer
+  , totalInstallments :: Integer
+  }
+  deriving stock (Show)
+
+PlutusTx.makeLift ''VestingDatum
+PlutusTx.makeIsDataIndexed ''VestingDatum [('VestingDatum, 0)]
+
+data PAssetClassData (s :: S) = PAssetClassData (Term s (PDataRecord '["symbol" ':= PCurrencySymbol, "tokenName" ':= PTokenName]))
+  deriving stock (Generic)
+  deriving anyclass (PlutusType, PIsData, PDataFields)
+
+instance DerivePlutusType PAssetClassData where
+  type DPTStrat _ = PlutusTypeData
+
+instance PTryFrom PData PAssetClassData
+
+ptoScottEncoding :: Term s (PAssetClassData :--> PAssetClass)
+ptoScottEncoding = phoistAcyclic $ plam $ \x' -> P.do
+  x <- pletFields @["symbol", "tokenName"] x'
+  pcon $ PAssetClass x.symbol x.tokenName
 
 data PVestingDatum (s :: S)
   = PVestingDatum
@@ -38,18 +76,29 @@ instance DerivePlutusType PVestingDatum where
 
 instance PTryFrom PData PVestingDatum
 
-instance PTryFrom PData (PAsData PVestingDatum)
+instance PUnsafeLiftDecl PVestingDatum where type PLifted PVestingDatum = VestingDatum
+deriving via (DerivePConstantViaData VestingDatum PVestingDatum) instance PConstantDecl VestingDatum
+
+data VestingRedeemer
+  = PartialUnlock
+  | FullUnlock
+
+PlutusTx.makeLift ''VestingRedeemer
+PlutusTx.makeIsDataIndexed ''VestingRedeemer [('PartialUnlock, 0), ('FullUnlock, 1)]
 
 data PVestingRedeemer (s :: S)
   = PPartialUnlock (Term s (PDataRecord '[]))
   | PFullUnlock (Term s (PDataRecord '[]))
   deriving stock (Generic)
-  deriving anyclass (PlutusType)
+  deriving anyclass (PlutusType, PIsData)
 
 instance DerivePlutusType PVestingRedeemer where
   type DPTStrat _ = PlutusTypeData
 
 instance PTryFrom PData PVestingRedeemer
+
+instance PUnsafeLiftDecl PVestingRedeemer where type PLifted PVestingRedeemer = VestingRedeemer
+deriving via (DerivePConstantViaData VestingRedeemer PVestingRedeemer) instance PConstantDecl VestingRedeemer
 
 pcountInputsAtScript :: Term s (PScriptHash :--> PBuiltinList PTxInInfo :--> PInteger)
 pcountInputsAtScript =
@@ -114,7 +163,7 @@ pvalidateVestingPartialUnlock = phoistAcyclic $ plam $ \datum ctx -> unTermCont 
   pguardC "Missing beneficiary signature" (ptxSignedBy # txInfoF.signatories # beneficiaryHash)
   pguardC "Unlock not permitted until firstUnlockPossibleAfter time" (datumF.firstUnlockPossibleAfter #< currentTimeApproximation)
   pguardC "Zero remaining assets not allowed" (0 #< newRemainingQty)
-  pguardC "Remaining asset exceed old asset" (newRemainingQty #< oldRemainingQty)
+  pguardC "Remaining asset exceed old asset" $ ptrace (pshow datumF.totalInstallments) $ (newRemainingQty #< oldRemainingQty)
   pguardC "Mismatched remaining asset" (expectedRemainingQty #== newRemainingQty)
   pguardC "Datum Modification Prohibited" (ownVestingInputF.datum #== ownVestingOutputF.datum)
   pguardC "Double satisfaction" (pcountInputsAtScript # ownValHash # txInfoF.inputs #== 1)
@@ -151,8 +200,8 @@ pvalidateVestingScript =
 pvalidateVestingScriptValidator :: Term s PValidator
 pvalidateVestingScriptValidator = phoistAcyclic $
   plam $ \dat red ctx -> unTermCont $ do
-    (datum, _) <- ptryFromC @PVestingDatum dat
-    (redeemer, _) <- ptryFromC @PVestingRedeemer red
-    pure $
+    let datum = pconvert dat
+    let redeemer = pconvert red
+    return $
       popaque $
         pvalidateVestingScript # datum # redeemer # ctx

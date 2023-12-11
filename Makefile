@@ -6,7 +6,6 @@ help:
 	@echo "Where <command>:"
 	@echo "  help       -- show this help"
 	@echo "  shell      -- opens a development shell for the smart contract project"
-	@echo "  shell-zsh  -- opens a development zsh shell for the smart contract project"
 	@echo "  code       -- start a vscode instance in the nix development shell"
 	@echo "  clean      -- cabal clean"
 	@echo "  build      -- build the smart contracts"
@@ -40,4 +39,4 @@ ci:
 
 .PHONY: export
 export:
-	cabal run linear-vesting
+	cabal run linear-vesting -f optimized
