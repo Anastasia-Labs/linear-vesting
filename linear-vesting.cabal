@@ -21,6 +21,13 @@ maintainer:         solid@snake
 -- category:
 extra-source-files: CHANGELOG.md
 
+flag optimized
+  description:
+    If optimized is True, some checks are disabled. Disable checks to create optimized scripts.
+
+  default:     False
+  manual:      True
+
 common lang
   ghc-options:
     -Werror -Wall -Wcompat -Wincomplete-uni-patterns
@@ -81,6 +88,7 @@ common lang
     ScopedTypeVariables
     StandaloneDeriving
     StandaloneKindSignatures
+    TemplateHaskell
     TupleSections
     TypeApplications
     TypeFamilies
@@ -88,7 +96,6 @@ common lang
     TypeSynonymInstances
     UndecidableInstances
     ViewPatterns
-    NoFieldSelectors
     OverloadedRecordDot
 
   default-language:   GHC2021
@@ -97,6 +104,7 @@ common dependencies
   build-depends:
     , aeson
     , aeson-pretty
+    , ansi-terminal
     , base
     , base16-bytestring
     , bytestring
@@ -125,15 +133,32 @@ common test-dependencies
     , tasty
     , tasty-hedgehog
     , tasty-hunit
+    , tasty-quickcheck
     , text
 
 library
   import:          lang, dependencies
   exposed-modules:
+    Compilation
     LinearVesting
     Utils
 
+  other-modules:   Conversions
   hs-source-dirs:  src
+
+  if flag(optimized)
+    hs-source-dirs: src-optimized
+
+  else
+    hs-source-dirs: src-checked
+
+test-suite linear-vesting-test
+  import:         lang, dependencies, test-dependencies
+  type:           exitcode-stdio-1.0
+  build-depends:  linear-vesting
+  main-is:        Spec.hs
+  hs-source-dirs: test
+  other-modules:  LinearVestingSpec
 
 executable linear-vesting
   import:         lang, dependencies
