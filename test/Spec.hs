@@ -6,4 +6,4 @@ import LinearVestingSpec qualified
 
 main :: IO ()
 main =
-  defaultMain $ testGroup "smart-handles" [LinearVestingSpec.tests]
+  defaultMain $ testGroup "linear-vesting" [LinearVestingSpec.tests]

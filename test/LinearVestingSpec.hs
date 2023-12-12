@@ -63,7 +63,7 @@ gen_correctPartialUnlockParameters = do
   let (end, nr, stepLength, realFirstUnlockTime) = calcValues vestingDatum
   let q = totalVestingQty vestingDatum
 
-  now <- chooseInteger (realFirstUnlockTime + 1, end - 1)
+  now <- chooseInteger (realFirstUnlockTime, end - 1)
 
   let remainingSteps = ceiling ((end - now) % stepLength)
       remaining = ceiling $ (remainingSteps * q) % nr
