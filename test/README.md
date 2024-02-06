@@ -35,6 +35,8 @@ linear-vesting
         +++ OK, passed 100 tests.
 ```
 
+A history of test execution results can be found on Github at [Linear Vesting Tests](https://github.com/Anastasia-Labs/linear-vesting/actions)
+
 ### Execution Time
 
 The entire suite was executed in 7.6 seconds, showcasing the Vesting validation process's speed and efficiency of taking just 0.07 seconds per test scenario.
