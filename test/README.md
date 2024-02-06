@@ -10,7 +10,7 @@ The property based tests for the Linear Vesting are organized into a suite title
 
 ### Tests Included
 
--**Partial Unlock**: This property based test single-handedly confirms the proper initialization of Linear Vesting Contract and the successful unlocking of vested assets from the Contract at correct intervals. It does so by programmatically generating **100** test scenarios with entirely different Vesting datum values, unlock timings and their corresponding vested asset quantities. This confirms that the Contract allows accurate vesting of assets and their claim under varied conditions.
+-**Partial Unlock**: This property based test single-handedly confirms the proper initialization of Linear Vesting Contract and the successful unlocking of vested assets from the Contract at correct intervals. It does so by programmatically generating **100** test scenarios with different Vesting datum values per test run, unlock timings and their corresponding vested asset quantities. Since the whole test suit is ran automatically with each commit, this means that thousands (if not millions) of test cases are tried during the whole lifetime of the project. This confirms that the Contract allows accurate vesting of assets and their claim under varied conditions.
 
 ## Running the Tests
 
