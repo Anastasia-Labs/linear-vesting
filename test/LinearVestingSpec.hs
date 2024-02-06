@@ -21,7 +21,7 @@ import Compilation
 import LinearVesting
 
 tests :: TestTree
-tests = testGroup "Linear Vesting" [partialUnlockTests]
+tests = testGroup "Linear Vesting Tests" [partialUnlockTests]
 
 alicePKH :: PubKeyHash
 alicePKH = "86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959"
@@ -127,4 +127,4 @@ property_partialUnlock_remainingLinearity = forAll gen_correctPartialUnlockParam
 
 partialUnlockTests :: TestTree
 partialUnlockTests =
-  testGroup "partial unlock" [testProperty "succeeds with correct parameters" property_partialUnlock_remainingLinearity]
+  testGroup "Partial Unlock" [testProperty "succeeds with correct parameters" property_partialUnlock_remainingLinearity]
