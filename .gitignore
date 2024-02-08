@@ -1,6 +1,7 @@
 # env
 
 .direnv
+shell.nix
 
 # Git
 
