@@ -51,7 +51,7 @@ All 3 tests passed (7.36s)
 Test suite linear-vesting-test: PASS
 ```
 
-Note: The datasets are generated randomly for each of the 100 tests, every time the tests are run. Dataset belonging to this test outcome summary can be found [here](../assets/datasets/partial-unlock.txt)
+Note: The datasets are generated randomly for each of the 100 tests, every time the tests are run. Dataset belonging to this test outcome summary can be found [here](../assets/test-reports/partial-unlock.txt)
 
 A history of test execution results can be found on Github at [Linear Vesting Tests](https://github.com/Anastasia-Labs/linear-vesting/actions)
 
