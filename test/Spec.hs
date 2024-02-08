@@ -1,9 +1,9 @@
 module Main (main) where
 
-import Test.Tasty (defaultMain, testGroup)
+import Test.Tasty (defaultMain)
 
 import LinearVestingSpec qualified
 
 main :: IO ()
 main =
-  defaultMain $ testGroup "linear-vesting" [LinearVestingSpec.tests]
+  defaultMain LinearVestingSpec.tests
