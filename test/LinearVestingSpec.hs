@@ -9,7 +9,7 @@ import PlutusLedgerApi.V2 (Credential (..), Extended (..), Interval (..), LowerB
 
 import Plutarch (Script, pcon)
 import Plutarch.Api.V2 (scriptHash)
-import Plutarch.Context (UTXO, buildSpending', input, output, script, signedWith, timeRange, withDatum, withRedeemer, withSpendingUTXO, withValue, address)
+import Plutarch.Context (UTXO, address, buildSpending', input, output, script, signedWith, timeRange, withDatum, withRedeemer, withSpendingUTXO, withValue)
 import Plutarch.Lift (pconstant)
 import Plutarch.Prelude (PUnit (..), (#), (#==))
 import Plutarch.Test.QuickCheck (fromPFun)
@@ -19,14 +19,16 @@ import Test.Tasty.QuickCheck (Gen, Property, chooseInteger, forAll, suchThat, te
 
 import Compilation
 import LinearVesting
-import qualified PlutusLedgerApi.V1 as PlutusTx
-import Plutarch.Test.Precompiled (tryFromPTerm, testEvalCase, Expectation (Success, Failure))
+import Plutarch.Test.Precompiled (Expectation (Failure, Success), testEvalCase, tryFromPTerm)
+import PlutusLedgerApi.V1 qualified as PlutusTx
 
 tests :: TestTree
-tests = testGroup "Linear Vesting Tests" 
-  [ partialUnlockTests
-  , unitTest
-  ]
+tests =
+  testGroup
+    "Linear Vesting Tests"
+    [ partialUnlockTests
+    , unitTest
+    ]
 
 alicePKH :: PubKeyHash
 alicePKH = "86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959"
@@ -134,16 +136,17 @@ partialUnlockTests :: TestTree
 partialUnlockTests =
   testGroup "Partial Unlock" [testProperty "succeeds with correct parameters" property_partialUnlock_remainingLinearity]
 
-vestingDatum :: VestingDatum 
-vestingDatum = VestingDatum
-      { beneficiary = Address alice Nothing
-      , vestingAsset = assetClass "" ""
-      , totalVestingQty = 10_000_000
-      , vestingPeriodStart = 100_000_000
-      , vestingPeriodEnd = 150_000_000
-      , firstUnlockPossibleAfter = 110_000_000
-      , totalInstallments = 10
-      }
+vestingDatum :: VestingDatum
+vestingDatum =
+  VestingDatum
+    { beneficiary = Address alice Nothing
+    , vestingAsset = assetClass "" ""
+    , totalVestingQty = 10_000_000
+    , vestingPeriodStart = 100_000_000
+    , vestingPeriodEnd = 150_000_000
+    , firstUnlockPossibleAfter = 110_000_000
+    , totalInstallments = 10
+    }
 
 fullUnlockInputUTxO :: VestingDatum -> UTXO
 fullUnlockInputUTxO datum =
@@ -156,11 +159,10 @@ fullUnlockInputUTxO datum =
 
 fullUnlockOutputUTxO :: UTXO
 fullUnlockOutputUTxO =
-  mconcat 
-  [
-    address $ Address alice Nothing
-  , withValue $ singleton "" "" (totalVestingQty vestingDatum)
-  ]
+  mconcat
+    [ address $ Address alice Nothing
+    , withValue $ singleton "" "" (totalVestingQty vestingDatum)
+    ]
 
 fullUnlockScriptContext :: ScriptContext
 fullUnlockScriptContext =
