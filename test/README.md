@@ -46,6 +46,9 @@ Linear Vesting Tests
   Unit Tests
     Pass - Full Unlock:               OK (0.15s)
     Fail - Full Unlock - Before End:  OK
+
+All 3 tests passed (7.36s)
+Test suite linear-vesting-test: PASS
 ```
 
 Note: The datasets are generated randomly for each of the 100 tests, every time the tests are run. Dataset belonging to this test outcome summary can be found [here](../assets/datasets/partial-unlock.txt)
