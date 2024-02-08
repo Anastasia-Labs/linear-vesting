@@ -7,6 +7,7 @@
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Building and Developing](#building-and-developing)
+    - [Tests](#tests)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -151,6 +152,10 @@ make export
 ```
 
 ![linear-vesting](/assets/gifs/linear-vesting.gif)
+
+### Tests
+
+For comprehensive information on the test suite for Linear Vesting implementation, including unit tests and property-based tests, please refer to our [test documentation](/test/README.md).
 
 ## License
 

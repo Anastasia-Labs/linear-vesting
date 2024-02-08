@@ -1,0 +1,303 @@
+Partial Unlock
+    succeeds with correct parameters: OK (7.18s)
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 842415325297, vestingPeriodStart = 1842724288, vestingPeriodEnd = 2411114840, firstUnlockPossibleAfter = 2117344211, totalInstallments = 80}, now = 2158245393, remaining = 379086896384}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 715154486783, vestingPeriodStart = 2510900295, vestingPeriodEnd = 2665527412, firstUnlockPossibleAfter = 2629559321, totalInstallments = 51}, now = 2641031545, remaining = 126203732962}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 226586975786, vestingPeriodStart = 2016723407, vestingPeriodEnd = 2190224858, firstUnlockPossibleAfter = 2070565391, totalInstallments = 81}, now = 2109098550, remaining = 106300062715}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 45848374003, vestingPeriodStart = 2103957170, vestingPeriodEnd = 2153220699, firstUnlockPossibleAfter = 2127161621, totalInstallments = 100}, now = 2133834845, remaining = 18339349602}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 579461680402, vestingPeriodStart = 2498276159, vestingPeriodEnd = 2617794881, firstUnlockPossibleAfter = 2526626781, totalInstallments = 23}, now = 2568697725, remaining = 251939861045}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 372244383798, vestingPeriodStart = 2656580421, vestingPeriodEnd = 2702296117, firstUnlockPossibleAfter = 2662170650, totalInstallments = 44}, now = 2676082880, remaining = 219962590427}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 400018318818, vestingPeriodStart = 2292972135, vestingPeriodEnd = 2656290041, firstUnlockPossibleAfter = 2328029388, totalInstallments = 6}, now = 2454126118, remaining = 266678879212}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 758490356203, vestingPeriodStart = 1792763292, vestingPeriodEnd = 2287829701, firstUnlockPossibleAfter = 2078638078, totalInstallments = 3}, now = 2150350982, remaining = 252830118735}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 513006164857, vestingPeriodStart = 2254559101, vestingPeriodEnd = 2495028092, firstUnlockPossibleAfter = 2415409096, totalInstallments = 86}, now = 2469262214, remaining = 59651879635}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 287502285701, vestingPeriodStart = 1818527791, vestingPeriodEnd = 1835694093, firstUnlockPossibleAfter = 1826996174, totalInstallments = 64}, now = 1828680636, remaining = 121290026781}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 575738030973, vestingPeriodStart = 1863220237, vestingPeriodEnd = 2118473288, firstUnlockPossibleAfter = 1918744664, totalInstallments = 67}, now = 2094930030, remaining = 60151734580}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 251106118160, vestingPeriodStart = 1812585223, vestingPeriodEnd = 2303940917, firstUnlockPossibleAfter = 1992893830, totalInstallments = 23}, now = 2064717273, remaining = 131011887736}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 280425098419, vestingPeriodStart = 2166181078, vestingPeriodEnd = 2199604702, firstUnlockPossibleAfter = 2198699897, totalInstallments = 75}, now = 2198862390, remaining = 7478002625}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 316301193574, vestingPeriodStart = 2133782994, vestingPeriodEnd = 2397647432, firstUnlockPossibleAfter = 2284131027, totalInstallments = 3}, now = 2387985095, remaining = 105433731192}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 334839201684, vestingPeriodStart = 2345621318, vestingPeriodEnd = 2424202435, firstUnlockPossibleAfter = 2357838293, totalInstallments = 13}, now = 2379215742, remaining = 206054893344}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 391690423022, vestingPeriodStart = 2636531807, vestingPeriodEnd = 2658500691, firstUnlockPossibleAfter = 2646296094, totalInstallments = 61}, now = 2646905705, remaining = 211898097701}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 42973277232, vestingPeriodStart = 2041201666, vestingPeriodEnd = 2680840941, firstUnlockPossibleAfter = 2114190110, totalInstallments = 77}, now = 2450849093, remaining = 15626646267}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 645753414958, vestingPeriodStart = 2222784546, vestingPeriodEnd = 2401804165, firstUnlockPossibleAfter = 2314815599, totalInstallments = 65}, now = 2366136388, remaining = 129150682992}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 619252119338, vestingPeriodStart = 2478710079, vestingPeriodEnd = 2519765223, firstUnlockPossibleAfter = 2500005543, totalInstallments = 21}, now = 2509160980, remaining = 176929176954}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 398621004174, vestingPeriodStart = 2519516679, vestingPeriodEnd = 2577113907, firstUnlockPossibleAfter = 2551016161, totalInstallments = 14}, now = 2558869879, remaining = 142364644348}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 313259624637, vestingPeriodStart = 2367399723, vestingPeriodEnd = 2572362915, firstUnlockPossibleAfter = 2525368102, totalInstallments = 99}, now = 2570135063, remaining = 6328477266}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 637598175717, vestingPeriodStart = 1975551822, vestingPeriodEnd = 2424128707, firstUnlockPossibleAfter = 2106200232, totalInstallments = 85}, now = 2168599120, remaining = 367556595414}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 935328948903, vestingPeriodStart = 1773297532, vestingPeriodEnd = 2552647452, firstUnlockPossibleAfter = 2239876772, totalInstallments = 93}, now = 2259314125, remaining = 362062818931}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 298401630750, vestingPeriodStart = 2660780733, vestingPeriodEnd = 2669883395, firstUnlockPossibleAfter = 2665539412, totalInstallments = 24}, now = 2666433815, remaining = 124334012813}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 950018815822, vestingPeriodStart = 2245658143, vestingPeriodEnd = 2439555450, firstUnlockPossibleAfter = 2396817784, totalInstallments = 82}, now = 2406243559, remaining = 173783929724}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 88382733706, vestingPeriodStart = 2454855465, vestingPeriodEnd = 2456101039, firstUnlockPossibleAfter = 2455967856, totalInstallments = 96}, now = 2456001762, remaining = 7365227809}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 519252061118, vestingPeriodStart = 1713191512, vestingPeriodEnd = 1825719580, firstUnlockPossibleAfter = 1781380063, totalInstallments = 66}, now = 1801284063, remaining = 118011832073}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 234810337661, vestingPeriodStart = 2432046326, vestingPeriodEnd = 2467788430, firstUnlockPossibleAfter = 2453172326, totalInstallments = 76}, now = 2465161629, remaining = 18537658237}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 893894834013, vestingPeriodStart = 1799168630, vestingPeriodEnd = 2031600401, firstUnlockPossibleAfter = 1985615824, totalInstallments = 90}, now = 1991766865, remaining = 158914637158}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 502342136891, vestingPeriodStart = 2383115744, vestingPeriodEnd = 2639704206, firstUnlockPossibleAfter = 2626963043, totalInstallments = 28}, now = 2637572274, remaining = 17940790604}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 368657504028, vestingPeriodStart = 2038244416, vestingPeriodEnd = 2125187637, firstUnlockPossibleAfter = 2108152620, totalInstallments = 59}, now = 2111449389, remaining = 62484322717}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 62368983342, vestingPeriodStart = 2583711777, vestingPeriodEnd = 2655583290, firstUnlockPossibleAfter = 2589532367, totalInstallments = 66}, now = 2626754959, remaining = 25514584095}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 481758652172, vestingPeriodStart = 2310221999, vestingPeriodEnd = 2589189474, firstUnlockPossibleAfter = 2416088977, totalInstallments = 47}, now = 2511986590, remaining = 143502577243}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 472060411211, vestingPeriodStart = 2531184773, vestingPeriodEnd = 2572327478, firstUnlockPossibleAfter = 2532071639, totalInstallments = 37}, now = 2549470467, remaining = 267926179336}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 249262356210, vestingPeriodStart = 1735666514, vestingPeriodEnd = 1883305545, firstUnlockPossibleAfter = 1748896604, totalInstallments = 13}, now = 1837477737, remaining = 95870137004}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 892903152092, vestingPeriodStart = 1758062097, vestingPeriodEnd = 2351696731, firstUnlockPossibleAfter = 1876477821, totalInstallments = 33}, now = 1988298676, remaining = 568211096786}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 279558319422, vestingPeriodStart = 2200460334, vestingPeriodEnd = 2380444555, firstUnlockPossibleAfter = 2228987676, totalInstallments = 51}, now = 2377495964, remaining = 5481535675}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 486225850653, vestingPeriodStart = 2140089889, vestingPeriodEnd = 2579807711, firstUnlockPossibleAfter = 2366250677, totalInstallments = 6}, now = 2507255873, remaining = 81037641776}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 251443146819, vestingPeriodStart = 1898973252, vestingPeriodEnd = 2463948992, firstUnlockPossibleAfter = 2246562395, totalInstallments = 84}, now = 2307840623, remaining = 71840899092}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 771403638334, vestingPeriodStart = 1989342972, vestingPeriodEnd = 2389795619, firstUnlockPossibleAfter = 2132078814, totalInstallments = 81}, now = 2148179452, remaining = 466651583684}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 922000926839, vestingPeriodStart = 1710087439, vestingPeriodEnd = 2233714009, firstUnlockPossibleAfter = 2001912700, totalInstallments = 96}, now = 2133314247, remaining = 182479350104}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 544187956155, vestingPeriodStart = 1823129953, vestingPeriodEnd = 1925159578, firstUnlockPossibleAfter = 1859504894, totalInstallments = 68}, now = 1872760580, remaining = 280096742139}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 362971051945, vestingPeriodStart = 1851907247, vestingPeriodEnd = 2627654578, firstUnlockPossibleAfter = 2459635230, totalInstallments = 24}, now = 2622763701, remaining = 15123793832}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 623878048738, vestingPeriodStart = 1772452484, vestingPeriodEnd = 2041155027, firstUnlockPossibleAfter = 1796400434, totalInstallments = 22}, now = 2033067103, remaining = 28358093125}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 670136900561, vestingPeriodStart = 2418224233, vestingPeriodEnd = 2555205060, firstUnlockPossibleAfter = 2523289913, totalInstallments = 36}, now = 2542683706, remaining = 74459655618}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 397991118709, vestingPeriodStart = 2523565978, vestingPeriodEnd = 2670556632, firstUnlockPossibleAfter = 2563737142, totalInstallments = 89}, now = 2652858948, remaining = 49189913549}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 613782951964, vestingPeriodStart = 2128446065, vestingPeriodEnd = 2148213790, firstUnlockPossibleAfter = 2132879445, totalInstallments = 15}, now = 2139122147, remaining = 286432044250}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 835151715778, vestingPeriodStart = 2682846893, vestingPeriodEnd = 2688603296, firstUnlockPossibleAfter = 2688078721, totalInstallments = 11}, now = 2688289878, remaining = 75922883253}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 744326066259, vestingPeriodStart = 2471281073, vestingPeriodEnd = 2513958020, firstUnlockPossibleAfter = 2490012272, totalInstallments = 32}, now = 2498450953, remaining = 279122274848}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 865825829477, vestingPeriodStart = 2530450833, vestingPeriodEnd = 2539005352, firstUnlockPossibleAfter = 2531953422, totalInstallments = 72}, now = 2533918344, remaining = 517090425938}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 915502021793, vestingPeriodStart = 2120491075, vestingPeriodEnd = 2434387491, firstUnlockPossibleAfter = 2152127558, totalInstallments = 28}, now = 2218089966, remaining = 653930015567}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 399558875232, vestingPeriodStart = 1795115566, vestingPeriodEnd = 2466438789, firstUnlockPossibleAfter = 2336770836, totalInstallments = 20}, now = 2449165386, remaining = 19977943762}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 902135904717, vestingPeriodStart = 1848890902, vestingPeriodEnd = 2587820750, firstUnlockPossibleAfter = 2115073539, totalInstallments = 56}, now = 2565306890, remaining = 32219139455}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 806181554851, vestingPeriodStart = 2669914629, vestingPeriodEnd = 2689371312, firstUnlockPossibleAfter = 2683316328, totalInstallments = 7}, now = 2685135159, remaining = 230337587101}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 804758624300, vestingPeriodStart = 2275228169, vestingPeriodEnd = 2302162354, firstUnlockPossibleAfter = 2294058342, totalInstallments = 23}, now = 2296073544, remaining = 209937032427}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 474899554176, vestingPeriodStart = 2513796177, vestingPeriodEnd = 2578141429, firstUnlockPossibleAfter = 2544003377, totalInstallments = 48}, now = 2556912438, remaining = 158299851392}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 869437382340, vestingPeriodStart = 2391293718, vestingPeriodEnd = 2401397014, firstUnlockPossibleAfter = 2398720452, totalInstallments = 80}, now = 2400673886, remaining = 65207803676}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 434600258304, vestingPeriodStart = 2293414057, vestingPeriodEnd = 2502971248, firstUnlockPossibleAfter = 2476627615, totalInstallments = 83}, now = 2480173808, remaining = 52361476905}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 843766525964, vestingPeriodStart = 1781122804, vestingPeriodEnd = 2662514115, firstUnlockPossibleAfter = 2229107344, totalInstallments = 43}, now = 2514987822, remaining = 156979818784}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 878902886676, vestingPeriodStart = 2292851966, vestingPeriodEnd = 2484170480, firstUnlockPossibleAfter = 2326458455, totalInstallments = 77}, now = 2335362124, remaining = 684859392216}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 127754669959, vestingPeriodStart = 2148076738, vestingPeriodEnd = 2588375827, firstUnlockPossibleAfter = 2480110526, totalInstallments = 65}, now = 2526475154, remaining = 19654564610}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 720286241028, vestingPeriodStart = 2139356957, vestingPeriodEnd = 2202782584, firstUnlockPossibleAfter = 2155787640, totalInstallments = 90}, now = 2162418411, remaining = 464184466441}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 814868793452, vestingPeriodStart = 2203120812, vestingPeriodEnd = 2384801167, firstUnlockPossibleAfter = 2379262024, totalInstallments = 84}, now = 2384658795, remaining = 9700818970}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 279834296134, vestingPeriodStart = 2183062960, vestingPeriodEnd = 2582504651, firstUnlockPossibleAfter = 2533764097, totalInstallments = 83}, now = 2552619213, remaining = 23600482807}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 395326319039, vestingPeriodStart = 1924039147, vestingPeriodEnd = 2553370877, firstUnlockPossibleAfter = 2049818092, totalInstallments = 47}, now = 2194771865, remaining = 227102353491}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 621526513797, vestingPeriodStart = 1945859916, vestingPeriodEnd = 2314935845, firstUnlockPossibleAfter = 2079027300, totalInstallments = 50}, now = 2273493599, remaining = 74583181656}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 855652358205, vestingPeriodStart = 2591708670, vestingPeriodEnd = 2594167262, firstUnlockPossibleAfter = 2591972466, totalInstallments = 72}, now = 2592969642, remaining = 427826179103}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 665501589409, vestingPeriodStart = 2643132841, vestingPeriodEnd = 2689470965, firstUnlockPossibleAfter = 2655752803, totalInstallments = 75}, now = 2686284175, remaining = 53240127153}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 509019342285, vestingPeriodStart = 2311487880, vestingPeriodEnd = 2455452123, firstUnlockPossibleAfter = 2417073280, totalInstallments = 48}, now = 2422377515, remaining = 127254835572}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 573289503770, vestingPeriodStart = 1898801856, vestingPeriodEnd = 1935499060, firstUnlockPossibleAfter = 1919736339, totalInstallments = 52}, now = 1935412206, remaining = 11024798150}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 433101906161, vestingPeriodStart = 2529909345, vestingPeriodEnd = 2686771583, firstUnlockPossibleAfter = 2566220755, totalInstallments = 45}, now = 2576829615, remaining = 307983577715}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 441877557071, vestingPeriodStart = 2468988469, vestingPeriodEnd = 2565359172, firstUnlockPossibleAfter = 2562406450, totalInstallments = 87}, now = 2565220562, remaining = 5079052381}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 35627008249, vestingPeriodStart = 2439737023, vestingPeriodEnd = 2645704120, firstUnlockPossibleAfter = 2592700450, totalInstallments = 18}, now = 2600839591, remaining = 7917112945}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 748473350059, vestingPeriodStart = 2367598984, vestingPeriodEnd = 2570764753, firstUnlockPossibleAfter = 2513041696, totalInstallments = 71}, now = 2566127873, remaining = 21083756340}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 344278805266, vestingPeriodStart = 2552389247, vestingPeriodEnd = 2602288086, firstUnlockPossibleAfter = 2560507499, totalInstallments = 65}, now = 2592684228, remaining = 68855761054}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 992287169168, vestingPeriodStart = 2670713898, vestingPeriodEnd = 2695230661, firstUnlockPossibleAfter = 2684650038, totalInstallments = 50}, now = 2692416527, remaining = 119074460301}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 833755465614, vestingPeriodStart = 1853318457, vestingPeriodEnd = 1886144872, firstUnlockPossibleAfter = 1869850607, totalInstallments = 19}, now = 1873968799, remaining = 351054932891}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 640732231683, vestingPeriodStart = 2467074160, vestingPeriodEnd = 2592461001, firstUnlockPossibleAfter = 2496509620, totalInstallments = 28}, now = 2512632732, remaining = 411899291797}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 556833537001, vestingPeriodStart = 2190513181, vestingPeriodEnd = 2498491641, firstUnlockPossibleAfter = 2290754707, totalInstallments = 6}, now = 2460281857, remaining = 92805589501}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 694388560604, vestingPeriodStart = 1932065027, vestingPeriodEnd = 2320497852, firstUnlockPossibleAfter = 2036397017, totalInstallments = 8}, now = 2199623121, remaining = 260395710227}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 46926288648, vestingPeriodStart = 1810282168, vestingPeriodEnd = 1882749474, firstUnlockPossibleAfter = 1831637606, totalInstallments = 71}, now = 1858363278, remaining = 15862407431}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 282410040075, vestingPeriodStart = 2450795292, vestingPeriodEnd = 2678539408, firstUnlockPossibleAfter = 2641513250, totalInstallments = 15}, now = 2657375819, remaining = 37654672010}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 681374767236, vestingPeriodStart = 2037848977, vestingPeriodEnd = 2241362923, firstUnlockPossibleAfter = 2046313820, totalInstallments = 58}, now = 2094026572, remaining = 493409314206}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 736739838061, vestingPeriodStart = 2128435078, vestingPeriodEnd = 2599590134, firstUnlockPossibleAfter = 2382437354, totalInstallments = 55}, now = 2387523557, remaining = 334881744574}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 79694923652, vestingPeriodStart = 2502150394, vestingPeriodEnd = 2611226085, firstUnlockPossibleAfter = 2605877233, totalInstallments = 58}, now = 2610276990, remaining = 1374050408}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 285147751717, vestingPeriodStart = 2058336528, vestingPeriodEnd = 2610867226, firstUnlockPossibleAfter = 2371782900, totalInstallments = 18}, now = 2455790036, remaining = 95049250573}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 875271300903, vestingPeriodStart = 2146072616, vestingPeriodEnd = 2692521988, firstUnlockPossibleAfter = 2557552816, totalInstallments = 95}, now = 2567235838, remaining = 202694406525}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 687876861209, vestingPeriodStart = 2486309806, vestingPeriodEnd = 2700664077, firstUnlockPossibleAfter = 2655575263, totalInstallments = 99}, now = 2671435604, remaining = 97275515727}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 828762180930, vestingPeriodStart = 2090572287, vestingPeriodEnd = 2591022645, firstUnlockPossibleAfter = 2579405909, totalInstallments = 95}, now = 2584956943, remaining = 17447624862}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 999072189451, vestingPeriodStart = 2545881967, vestingPeriodEnd = 2574916498, firstUnlockPossibleAfter = 2555662126, totalInstallments = 19}, now = 2559089643, remaining = 578410214946}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 449556443846, vestingPeriodStart = 2685334100, vestingPeriodEnd = 2693247449, firstUnlockPossibleAfter = 2689144794, totalInstallments = 31}, now = 2691250005, remaining = 116014566154}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 221683672478, vestingPeriodStart = 2462594541, vestingPeriodEnd = 2637605188, firstUnlockPossibleAfter = 2514324859, totalInstallments = 21}, now = 2610257112, remaining = 42225461425}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 195402399744, vestingPeriodStart = 2305156789, vestingPeriodEnd = 2459889009, firstUnlockPossibleAfter = 2451808108, totalInstallments = 89}, now = 2455186554, remaining = 6586597745}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 11563161189, vestingPeriodStart = 2345157633, vestingPeriodEnd = 2675917864, firstUnlockPossibleAfter = 2659009918, totalInstallments = 90}, now = 2666217590, remaining = 385438707}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 423694488401, vestingPeriodStart = 2450609475, vestingPeriodEnd = 2543113976, firstUnlockPossibleAfter = 2455082479, totalInstallments = 61}, now = 2528288171, remaining = 69458112853}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 938544312276, vestingPeriodStart = 1890991649, vestingPeriodEnd = 2287718028, firstUnlockPossibleAfter = 1951071656, totalInstallments = 44}, now = 2083486770, remaining = 490602708690}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 991533280346, vestingPeriodStart = 2308746218, vestingPeriodEnd = 2545426550, firstUnlockPossibleAfter = 2462743799, totalInstallments = 33}, now = 2526930705, remaining = 90139389123}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 847031071068, vestingPeriodStart = 1823116265, vestingPeriodEnd = 1956447290, firstUnlockPossibleAfter = 1949259149, totalInstallments = 100}, now = 1954007150, remaining = 16940621422}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 998969715750, vestingPeriodStart = 2157664191, vestingPeriodEnd = 2643880844, firstUnlockPossibleAfter = 2542531962, totalInstallments = 74}, now = 2547924816, remaining = 202493861301}
+      
+      Passed:
+      PartialUnlockParameters {datum = VestingDatum {beneficiary = Address {addressCredential = PubKeyCredential 86ae9eebd8b97944a45201e4aec1330a72291af2d071644bba015959, addressStakingCredential = Nothing}, vestingAsset = (,""), totalVestingQty = 110927846462, vestingPeriodStart = 1708298120, vestingPeriodEnd = 2345780036, firstUnlockPossibleAfter = 1968716107, totalInstallments = 98}, now = 2163474639, remaining = 32825587219}
+      
+      +++ OK, passed 100 tests.
