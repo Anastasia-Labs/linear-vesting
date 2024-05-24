@@ -157,6 +157,13 @@ make export
 
 For comprehensive information on the test suite for Linear Vesting implementation, including unit tests and property-based tests, please refer to our [test documentation](/test/README.md).
 
+## Demeter Workspace 
+
+To provide a seamless experience for running and trying out our application, click the workspace button below. This will start a workspace in Demeter with our repository code automatically cloned.
+
+
+[![Code in Workspace](https://demeter.run/code/badge.svg)](https://demeter.run/code?repository=https://github.com/Anastasia-Labs/linear-vesting&template=plutus&size=large) 
+
 ## License
 
 © 2023 Anastasia Labs.
