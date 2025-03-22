@@ -7,6 +7,7 @@ module Utils (
   (#/=),
   (#>),
   writePlutusScript,
+  writePlutusScriptWithTracing,
   evalT,
 )
 where
@@ -26,7 +27,7 @@ import Data.Text (
 import Data.Text.Encoding qualified as Text
 import Plutarch (
   Config (Config),
-  TracingMode (DoTracing),
+  TracingMode (..),
   compile,
  )
 import Plutarch.Api.V1 (PExtended (PFinite), PInterval (PInterval), PLowerBound (PLowerBound), PPOSIXTimeRange, PUpperBound (PUpperBound))
@@ -133,19 +134,30 @@ pgetLowerInclusiveTimeRange = phoistAcyclic $
 encodeSerialiseCBOR :: Script -> Text
 encodeSerialiseCBOR = Text.decodeUtf8 . Base16.encode . CBOR.serialize' . serialiseScript
 
-evalT :: ClosedTerm a -> Either Text (Script, ExBudget, [Text])
-evalT x = evalWithArgsT x []
+evalT :: Config -> ClosedTerm a -> Either Text (Script, ExBudget, [Text])
+evalT cfg x = evalWithArgsT cfg x []
 
-evalWithArgsT :: ClosedTerm a -> [Data] -> Either Text (Script, ExBudget, [Text])
-evalWithArgsT x args = do
-  cmp <- compile (Config DoTracing) x
+evalWithArgsT :: Config -> ClosedTerm a -> [Data] -> Either Text (Script, ExBudget, [Text])
+evalWithArgsT cfg x args = do
+  cmp <- compile cfg x
   let (escr, budg, trc) = evalScript $ applyArguments cmp args
   scr <- first (pack . show) escr
   pure (scr, budg, trc)
 
 writePlutusScript :: String -> FilePath -> ClosedTerm a -> IO ()
 writePlutusScript title filepath term = do
-  case evalT term of
+  case evalT (Config NoTracing) term of
+    Left e -> putStrLn (show e)
+    Right (script, _, _) -> do
+      let
+        scriptType = "PlutusScriptV2" :: String
+        plutusJson = object ["type" .= scriptType, "description" .= title, "cborHex" .= encodeSerialiseCBOR script]
+        content = encodePretty plutusJson
+      LBS.writeFile filepath content
+
+writePlutusScriptWithTracing :: String -> FilePath -> ClosedTerm a -> IO ()
+writePlutusScriptWithTracing title filepath term = do
+  case evalT (Config DoTracing) term of
     Left e -> putStrLn (show e)
     Right (script, _, _) -> do
       let

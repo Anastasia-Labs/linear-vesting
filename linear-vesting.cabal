@@ -25,7 +25,7 @@ flag optimized
   description:
     If optimized is True, some checks are disabled. Disable checks to create optimized scripts.
 
-  default:     False
+  default:     True
   manual:      True
 
 common lang
