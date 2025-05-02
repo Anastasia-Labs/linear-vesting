@@ -20,9 +20,9 @@ import Plutarch.Extra.Value (passetClassValueOf)
 import Plutarch.Lift (PConstantDecl, PUnsafeLiftDecl (..))
 import Plutarch.Monadic qualified as P
 import Plutarch.Prelude
+import Plutarch.Unsafe (punsafeCoerce)
 import "liqwid-plutarch-extra" Plutarch.Extra.TermCont (pguardC, pletC, pletFieldsC, pmatchC)
 
-import Conversions
 import Utils
 
 data VestingDatum = VestingDatum
@@ -200,8 +200,8 @@ pvalidateVestingScript =
 pvalidateVestingScriptValidator :: Term s PValidator
 pvalidateVestingScriptValidator = phoistAcyclic $
   plam $ \dat red ctx -> unTermCont $ do
-    let datum = pconvert dat
-    let redeemer = pconvert red
+    let datum = ptryFrom dat fst
+    let redeemer = punsafeCoerce red
     return $
       popaque $
         pvalidateVestingScript # datum # redeemer # ctx

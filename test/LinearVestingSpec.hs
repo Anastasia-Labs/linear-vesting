@@ -7,7 +7,7 @@ import PlutusLedgerApi.V1 (Address (..))
 import PlutusLedgerApi.V1.Value (assetClass, singleton)
 import PlutusLedgerApi.V2 (Credential (..), Extended (..), Interval (..), LowerBound (..), POSIXTime (..), PubKeyHash, ScriptContext, UpperBound (..))
 
-import Plutarch (Script, pcon)
+import Plutarch (Config (..), Script, TracingMode (..), compile, pcon)
 import Plutarch.Api.V2 (scriptHash)
 import Plutarch.Context (UTXO, address, buildSpending', input, output, script, signedWith, timeRange, withDatum, withRedeemer, withSpendingUTXO, withValue)
 import Plutarch.Lift (pconstant)
@@ -17,7 +17,6 @@ import Plutarch.Test.QuickCheck (fromPFun)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.QuickCheck (Gen, Property, chooseInteger, forAll, suchThat, testProperty)
 
-import Compilation
 import LinearVesting
 import Plutarch.Test.Precompiled (Expectation (Failure, Success), testEvalCase, tryFromPTerm)
 import PlutusLedgerApi.V1 qualified as PlutusTx
@@ -96,7 +95,7 @@ gen_correctPartialUnlockParameters = do
        in realFirstUnlockTime < end
 
 vestingScript :: Script
-vestingScript = fromRight undefined $ compileTerm $ pvalidateVestingScriptValidator
+vestingScript = fromRight undefined $ compile (Config DoTracing) $ pvalidateVestingScriptValidator
 
 partialUnlockVestingInputUTxO :: VestingDatum -> UTXO
 partialUnlockVestingInputUTxO datum =

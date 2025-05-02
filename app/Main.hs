@@ -4,7 +4,7 @@ import System.Console.ANSI (Color (..), ColorIntensity (..), ConsoleLayer (..), 
 import System.Directory (createDirectoryIfMissing, doesDirectoryExist)
 
 import LinearVesting
-import Utils (writePlutusScript)
+import Utils (writePlutusScriptWithTracing, writePlutusScriptWithoutTracing)
 
 main :: IO ()
 main = do
@@ -14,7 +14,8 @@ main = do
 
   exist <- doesDirectoryExist "compiled"
   createDirectoryIfMissing exist "compiled"
-  writePlutusScript "Linear Vesting Validator" "./compiled/linearVesting.json" $ LinearVesting.pvalidateVestingScriptValidator
+  writePlutusScriptWithoutTracing "Linear Vesting Validator" "./compiled/linearVesting.json" $ LinearVesting.pvalidateVestingScriptValidator
+  writePlutusScriptWithTracing "Linear Vesting Validator" "./compiled/linearVestingWithTracing.json" $ LinearVesting.pvalidateVestingScriptValidator
   putStrLn "Exported linear vesting validator"
 
   setSGR [SetColor Foreground Vivid Green]

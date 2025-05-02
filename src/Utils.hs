@@ -6,7 +6,7 @@ module Utils (
   (#>=),
   (#/=),
   (#>),
-  writePlutusScript,
+  writePlutusScriptWithoutTracing,
   writePlutusScriptWithTracing,
   evalT,
 )
@@ -144,9 +144,9 @@ evalWithArgsT cfg x args = do
   scr <- first (pack . show) escr
   pure (scr, budg, trc)
 
-writePlutusScript :: String -> FilePath -> ClosedTerm a -> IO ()
-writePlutusScript title filepath term = do
-  case evalT (Config NoTracing) term of
+writePlutusScript :: Config -> String -> FilePath -> ClosedTerm a -> IO ()
+writePlutusScript config title filepath term = do
+  case evalT config term of
     Left e -> putStrLn (show e)
     Right (script, _, _) -> do
       let
@@ -155,13 +155,8 @@ writePlutusScript title filepath term = do
         content = encodePretty plutusJson
       LBS.writeFile filepath content
 
+writePlutusScriptWithoutTracing :: String -> FilePath -> ClosedTerm a -> IO ()
+writePlutusScriptWithoutTracing = writePlutusScript (Config NoTracing)
+
 writePlutusScriptWithTracing :: String -> FilePath -> ClosedTerm a -> IO ()
-writePlutusScriptWithTracing title filepath term = do
-  case evalT (Config DoTracing) term of
-    Left e -> putStrLn (show e)
-    Right (script, _, _) -> do
-      let
-        scriptType = "PlutusScriptV2" :: String
-        plutusJson = object ["type" .= scriptType, "description" .= title, "cborHex" .= encodeSerialiseCBOR script]
-        content = encodePretty plutusJson
-      LBS.writeFile filepath content
+writePlutusScriptWithTracing = writePlutusScript (Config DoTracing)
