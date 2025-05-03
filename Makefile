@@ -39,4 +39,4 @@ ci:
 
 .PHONY: export
 export:
-	cabal run linear-vesting -f optimized
+	cabal run linear-vesting
